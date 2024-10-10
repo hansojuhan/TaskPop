@@ -57,3 +57,21 @@ Interface should contain:
 - Expand, change, delete todo
 
 Store data using localStorage
+
+## Next steps
+
+1. Write a class for the task
+
+2. Visualise the task
+
+3. Add options to create or delete tasks
+
+4. Write a class for projects, apply default project
+
+5. Add option to create new project
+
+6. Apply project selection to task
+
+7. Create project selection and project view
+
+8. Implement localStorage
