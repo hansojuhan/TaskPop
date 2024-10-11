@@ -1,3 +1,5 @@
+import "./styles.css";
+
 /**
  * 1. Write a class for the task
  * 
@@ -18,30 +20,68 @@ class Task {
   }
 }
 
+// Main content div
 const content = document.getElementById('content');
 
 // Load a new task in the DOM
-function generateTask(task) {
+function generateTaskMarkup(task) {
   
+  // Main container, contains status and content
   const container = document.createElement('div');
   container.classList.add('task');
+
+  const status = document.createElement('input');
+  status.classList.add('status');
+  status.type = 'checkbox';
+
+  // Container for content, contains everything else
+  const taskContent = document.createElement('div');
+  taskContent.classList.add('task-content');
 
   const header = document.createElement('h2');
   header.classList.add('title');
   header.innerText = task.title;
 
-  const description = document.createElement('p');
-  description.classList.add('description');
-  description.innerText = task.description;
+  // Container for category and date
+  const dateCategoryContainer = document.createElement('div');
+  dateCategoryContainer.classList.add('date-category-container');
+
+  const category = document.createElement('p');
+  category.classList.add('category');
+  category.innerText = '💻 Programming';
 
   const dueDate = document.createElement('p');
   dueDate.classList.add('due-date');
   dueDate.innerText = task.dueDate;
 
-  // Append everything
-  container.append(header);
-  container.append(description);
-  container.append(dueDate);
+  dateCategoryContainer.append(category, dueDate);
+
+
+  const description = document.createElement('p');
+  description.classList.add('description');
+  description.innerText = task.description;
+
+  taskContent.append(header, dateCategoryContainer, description);
+
+
+  // Finally, a chevron for expanding the task
+  const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  // chevron.setAttributeNS(null, 'xmlns', "http://www.w3.org/2000/svg");
+  chevron.setAttributeNS(null, 'viewBox', "0 0 24 24");
+  chevron.setAttributeNS(null, 'fill', "none");
+  chevron.setAttributeNS(null, 'stroke-width', "1.5");
+  chevron.setAttributeNS(null, 'stroke', "currentColor");
+  chevron.setAttributeNS(null, 'class', "task-chevron");
+
+  const chevronPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  chevronPath.setAttributeNS(null, "stroke-linecap", "round");
+  chevronPath.setAttributeNS(null, "stroke-linejoin", "round");
+  chevronPath.setAttributeNS(null, "d", "m19.5 8.25-7.5 7.5-7.5-7.5");
+
+  chevron.append(chevronPath);
+
+  // container.append(status, taskContent);
+  container.append(status, taskContent, chevron);
 
   content.append(container);
 }
@@ -57,5 +97,5 @@ let task2 = new Task(
   "2024-10-15"
 )
 
-generateTask(task1);
-generateTask(task2);
+generateTaskMarkup(task1);
+generateTaskMarkup(task2);
