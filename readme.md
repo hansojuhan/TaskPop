@@ -36,12 +36,7 @@ localStorage uses JSON to send and store data, and when you retrieve the data, i
 
 ## Notes
 
-Generate a task, with:
-
-- Title
-- Description
-- Due date
-- Status (done, to do)
+3
 
 Possible to create projects, which contain tasks.
 
