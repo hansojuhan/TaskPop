@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-VariableFont_opsz,wght.ttf");
+}
+
+:root {
+  font-family: "Inter";
+}
+
 #content {
   display: flex;
   flex-direction: column;
@@ -6,7 +15,7 @@
 
 .task {
   background-color: rgb(232, 232, 232);
-  height: 5rem;
+  height: auto;
 
   border-radius: 2px;
   box-shadow: 0px 1px 5px gray;
@@ -25,13 +34,12 @@
 .date-category-container {
   display: flex;
   align-items: center;
+
+  gap: 1rem;
 }
 
 .task-chevron{
   position: relative;
-  
-  right: 10%;
-
   width: 1rem;
 }
 
