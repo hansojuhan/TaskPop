@@ -57,7 +57,7 @@ Store data using localStorage
 
 2. Visualise the task
 
-3. Add options to create or delete tasks
+3. Add options to create tasks
 
 4. Write a class for projects, apply default project
 

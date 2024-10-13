@@ -10,8 +10,9 @@
   --primary: #0b80d3;
   --secondary: #9022f1; 
   --light: #ffffff;
+  --medium: #fefefe;
   --dark: #f2f2f2;
-  --very-dark: #131313;
+  --very-dark: #7a7a7a;
 
   --border-radius: 0.25rem;
 
@@ -25,7 +26,7 @@
 #content {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1rem;
 }
 
 #task-form {
@@ -38,10 +39,11 @@
   border-radius: var(--border-radius);
   box-shadow: 0px 1px 5px gray;
 
+
   padding: 1rem 2rem;
+  margin-bottom: 1rem;
 
   height: var(--task-height);
-
 }
 
 #task-form-section {
@@ -128,8 +130,8 @@
 #task-form button {
   font-size: 3rem;
   color: gray;
-
-  border-radius: 50%;
+  background-color: var(--light);
+  border-radius: var(--border-radius);
 
   height: 4rem;
   width: 4rem;
@@ -142,29 +144,58 @@
   justify-content: center;
 }
 
-
 #task-form button:hover {
-  background-color: darkcyan;
-  color: cyan;
+  background-color: var(--very-dark);
+  color: var(--light);
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* Task */
 .task {
-  background-color: rgb(232, 232, 232);
+  background-color: var(--dark);
+
   height: var(--task-height);
+  overflow: hidden;
 
   border-radius: var(--border-radius);
   box-shadow: 0px 1px 5px gray;
 
-  padding: 1rem;
+  padding: 1rem 2rem;
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+/* Checkbox */
+.task .status {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0 0 1rem;
 }
 
 .task-content {
   display: flex;
   flex-direction: column;
+
+  width: 80%;
+
+  padding-bottom: 0.125rem;
+}
+
+.title {
+  margin: 0;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  
+}
+
+.description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  margin: 0;
 }
 
 .date-category-container {
@@ -172,11 +203,25 @@
   align-items: center;
 
   gap: 1rem;
+  margin: 0;
+
+  color: var(--very-dark);
 }
 
 .task-chevron{
-  position: relative;
-  width: 1rem;
+  display: flex;
+
+  width: 3rem;
+  height: 3rem;
+  stroke: var(--very-dark);
+  /* background-color: var(--light); */
+
+  border-radius: var(--border-radius);
+
+  border: none;
+  user-select: none;
+
+  cursor: pointer;
 }
 
 

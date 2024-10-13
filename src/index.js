@@ -91,7 +91,7 @@ let task2 = new Task(
 tasks.push(task1);
 tasks.push(task2);
 
-// generateTaskMarkup(task1);
+generateTaskMarkup(task1);
 // generateTaskMarkup(task2);
 
 window.onload = function() {
