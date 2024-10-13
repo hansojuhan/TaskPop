@@ -70,10 +70,11 @@ function generateTaskMarkup(task) {
 
   chevron.append(chevronPath);
 
-  // container.append(status, taskContent);
   container.append(status, taskContent, chevron);
 
-  content.append(container);
+  // Insert to the top of the list
+  // content.append(container);
+  content.insertBefore(container, content.firstChild);
 }
 
 let task1 = new Task(
@@ -87,8 +88,11 @@ let task2 = new Task(
   "2024-10-15"
 )
 
-generateTaskMarkup(task1);
-generateTaskMarkup(task2);
+tasks.push(task1);
+tasks.push(task2);
+
+// generateTaskMarkup(task1);
+// generateTaskMarkup(task2);
 
 window.onload = function() {
 
