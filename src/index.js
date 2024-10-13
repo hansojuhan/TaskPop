@@ -97,10 +97,19 @@ window.onload = function() {
 }
 
 function createNewTask() {
+
+  // Get values from the form
+  const form = document.getElementById('task-form');
+  
+  const title = document.querySelector('input[name=title]').value;
+  const dueDate = document.querySelector('input[name=due-date]').value;
+  // const category = document.querySelector('select[name=category]').value ;
+
+  // Create new object
   let task = new Task(
-    "New task",
-    "Stuff",
-    "2024-10-15"
+    title,
+    "",
+    dueDate
   );
 
   tasks.push(task);
