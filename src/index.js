@@ -1,17 +1,5 @@
 import "./styles.css";
 
-/**
- * 1. Write a class for the task
- * 
- * Generate a task, with:
-- Title
-- Description
-- Due date
-- Status (done, to do)
- * 
- */
-
-// Task
 class Task {
   constructor(title, description, dueDate) {
     this.title = title;
@@ -22,6 +10,8 @@ class Task {
 
 // Main content div
 const content = document.getElementById('content');
+
+let tasks = []
 
 // Load a new task in the DOM
 function generateTaskMarkup(task) {
@@ -99,3 +89,21 @@ let task2 = new Task(
 
 generateTaskMarkup(task1);
 generateTaskMarkup(task2);
+
+window.onload = function() {
+
+  const newTaskButton = document.getElementById('new-task-button');
+  newTaskButton.addEventListener('click', createNewTask);
+}
+
+function createNewTask() {
+  let task = new Task(
+    "New task",
+    "Stuff",
+    "2024-10-15"
+  );
+
+  tasks.push(task);
+
+  generateTaskMarkup(task);
+}

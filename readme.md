@@ -36,8 +36,6 @@ localStorage uses JSON to send and store data, and when you retrieve the data, i
 
 ## Notes
 
-3
-
 Possible to create projects, which contain tasks.
 
 - Initially use a default project

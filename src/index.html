@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-  <div id="content">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- New task form -->
+    <div id="task-form">
+      <div id="task-form-section">
+        <div>
+          <input
+            type="text"
+            name="title"
+            placeholder="What do you need to finish?"
+            autofocus
+          />
+        </div>
 
-  </div>
+        <div id="task-form-date-category">
+          <input type="date" name="due-date" />
+          <!-- Placeholder for category input -->
+          <select name="category" id="category-dropdown">
+            <option selected value="💻 Programming">💻 Programming</option>
+          </select>
+        </div>
+      </div>
 
-</body>
+      <!-- Submit -->
+      <div id="button-container">
+        <button id="new-task-button" type="button">+</button>
+      </div>
+    </div>
+
+    <div id="content"></div>
+  </body>
 </html>
