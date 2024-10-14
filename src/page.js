@@ -90,6 +90,9 @@ export function generateCategoriesMenu(categories) {
   // Find list
   const menu = document.getElementById('categories-menu');
 
+  // Clear menu
+  menu.innerHTML = '';
+
   // For each category, add a li
   categories.forEach(category => {
     const listItem = document.createElement('li');
@@ -121,6 +124,13 @@ export function showNewCategoryModal() {
   emojiButton.addEventListener('click', showEmojiPicker);
 
   modal.showModal();
+}
+
+// Takes in an id, finds the modal with that id and closes it
+export function closeModal(modalId) {
+  // Close the modal
+  const modal = document.getElementById(modalId);
+  modal.close();
 }
 
 // Shows the emoji picker and adds a listener for emoji click

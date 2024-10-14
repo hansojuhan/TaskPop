@@ -65,10 +65,20 @@ new class
 project has a name
 and an emoji
 
-[ ] 5. Add option to create new project
+[x] 5. Add option to create new project
 
-[ ] 6. Apply project selection to task
+[x] 6. Apply project selection to task
 
-[ ] 7. Create project selection and project view
+[] 7. Create project selection and project view
 
 [ ] 8. Implement localStorage
+
+---
+
+Other things to do:
+
+- Add form validations everywhere
+
+- Fix the emojipicker positioning, should be close to the emoji
+
+- Make mobile-friendy (currently everything breaks)

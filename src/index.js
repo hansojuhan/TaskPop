@@ -53,6 +53,37 @@ window.onload = function() {
   // Populate menu
   updatePage.generateCategoriesMenu(categories);
 
+  // Add listener for Add category
+  const addButton = document.getElementById('add-category-button');
+  addButton.addEventListener('click', addNewCategory);
+}
+
+// Creates new category, adds it to categories array, closes the modal
+function addNewCategory() {
+  // Get values from the form
+  const emoji = document.getElementById('category-emoji-button').innerText;
+  let name = document.querySelector('input[name="name"]').value;
+
+  // Capitalize the name
+  name = name.charAt(0).toUpperCase() + name.slice(1);
+
+  // Create new category
+  const category = new Category (
+    name,
+    emoji
+  );
+
+  // Push to array
+  categories.push(category);
+
+  // Update the sidebar
+  updatePage.generateCategoriesMenu(categories);
+
+  // Update the dropdown
+  updatePage.generateCategoriesDropdownMarkup(categories);
+
+  // Close this modal
+  updatePage.closeModal('add-category-modal');
 }
 
 function createNewTask() {
@@ -111,6 +142,4 @@ function generateTestData() {
     "💻"
   );
   categories.push(cat1, cat2);
-
-  updatePage.showNewCategoryModal();
 }
