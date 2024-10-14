@@ -53,18 +53,22 @@ Store data using localStorage
 
 ## Next steps
 
-1. Write a class for the task
+[x] 1. Write a class for the task
 
-2. Visualise the task
+[x] 2. Visualise the task
 
-3. Add options to create tasks
+[x] 3. Add options to create tasks
 
-4. Write a class for projects, apply default project
+[ ] 4. Write a class for projects, apply default project
 
-5. Add option to create new project
+new class
+project has a name
+and an emoji
 
-6. Apply project selection to task
+[ ] 5. Add option to create new project
 
-7. Create project selection and project view
+[ ] 6. Apply project selection to task
 
-8. Implement localStorage
+[ ] 7. Create project selection and project view
+
+[ ] 8. Implement localStorage

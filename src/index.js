@@ -95,28 +95,46 @@ generateTaskMarkup(task1);
 // generateTaskMarkup(task2);
 
 window.onload = function() {
+  // When title is clicked, select all
+  const titleInput = document.querySelector('input[name=title]');
+  titleInput.addEventListener('click', () => {
+    titleInput.select();
+  })
 
+  // New task button listener
   const newTaskButton = document.getElementById('new-task-button');
   newTaskButton.addEventListener('click', createNewTask);
+
+  // Prevent form submission
+  const form = document.getElementById('task-form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    createNewTask();
+  })
 }
 
 function createNewTask() {
-
   // Get values from the form
   const form = document.getElementById('task-form');
   
-  const title = document.querySelector('input[name=title]').value;
+  const titleInput = document.querySelector('input[name=title]');
   const dueDate = document.querySelector('input[name=due-date]').value;
   // const category = document.querySelector('select[name=category]').value ;
 
   // Create new object
   let task = new Task(
-    title,
+    titleInput.value,
     "",
     dueDate
   );
 
+  // Add to array
   tasks.push(task);
 
+  // Generate markup
   generateTaskMarkup(task);
+
+  // Clear the form
+  titleInput.value = '';
+  titleInput.focus();
 }
