@@ -1,13 +1,30 @@
 import "./styles.css";
 
 class Task {
-  constructor(title, description, dueDate) {
+  constructor(title, description, dueDate, category) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
+    this.category = category;
   }
 }
 
+class Category {
+  constructor(name, emoji) {
+    this.name = name;
+    this.emoji = emoji;
+  }
+}
+let categories = []
+let cat1 = new Category(
+  "Sport",
+  "🤾"
+);
+let cat2 = new Category(
+  "Programming",
+  "💻"
+);
+categories.push(cat1, cat2);
 // Main content div
 const content = document.getElementById('content');
 
@@ -38,7 +55,7 @@ function generateTaskMarkup(task) {
 
   const category = document.createElement('p');
   category.classList.add('category');
-  category.innerText = '💻 Programming';
+  category.innerText = task.category;
 
   const dueDate = document.createElement('p');
   dueDate.classList.add('due-date');
@@ -77,16 +94,42 @@ function generateTaskMarkup(task) {
   content.insertBefore(container, content.firstChild);
 }
 
+function generateCategoriesDropdownMarkup() {
+  const dropdown = document.getElementById('category-dropdown');
+
+  // Clear existing
+  dropdown.innerHTML = '';
+
+  // Add default option
+  const defaultOption = document.createElement('option');
+  defaultOption.value = '';
+  defaultOption.innerText = 'Choose category';
+  dropdown.append(defaultOption);
+
+  // Loop through categories and populate
+  categories.forEach(category => {
+    const option = document.createElement('option');
+    option.value = `${category.emoji} ${category.name}`;
+    option.innerText = `${category.emoji} ${category.name}`;
+    dropdown.append(option);
+  });
+}
+
+const defaultCategory = new Category(
+  '',
+  ''
+);
+
 let task1 = new Task(
   "finish writing this class",
   "put things in it like title, desc, due date, status",
   "2024-10-15"
-)
+);
 let task2 = new Task(
   "Second task",
   "Some other stuff: title, desc, due date, status",
   "2024-10-15"
-)
+);
 
 tasks.push(task1);
 tasks.push(task2);
@@ -111,6 +154,9 @@ window.onload = function() {
     event.preventDefault();
     createNewTask();
   })
+
+  // Populate dropdown
+  generateCategoriesDropdownMarkup();
 }
 
 function createNewTask() {
@@ -119,12 +165,13 @@ function createNewTask() {
   
   const titleInput = document.querySelector('input[name=title]');
   const dueDate = document.querySelector('input[name=due-date]').value;
-  // const category = document.querySelector('select[name=category]').value ;
+  const category = document.querySelector('select[name=category]').value ;
 
   // Create new object
   let task = new Task(
     titleInput.value,
-    "",
+    '',
+    category,
     dueDate
   );
 
