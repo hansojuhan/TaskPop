@@ -59,11 +59,7 @@ Store data using localStorage
 
 [x] 3. Add options to create tasks
 
-[ ] 4. Write a class for projects, apply default project
-
-new class
-project has a name
-and an emoji
+[x] 4. Write a class for projects, apply default project
 
 [x] 5. Add option to create new project
 
@@ -82,3 +78,19 @@ Other things to do:
 - Fix the emojipicker positioning, should be close to the emoji
 
 - Make mobile-friendy (currently everything breaks)
+
+- Edit categories
+
+- Add css animations for buttons and modal openings
+
+- Add titles
+
+- Make category menu items fully clickable
+
+- Hide task if done
+
+- Format dates
+
+- Expand task for description
+
+- Add notifications for task creation
