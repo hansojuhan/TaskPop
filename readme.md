@@ -69,6 +69,18 @@ Store data using localStorage
 
 [ ] 8. Implement localStorage
 
+Create a new file for the functionality
+
+Add methods from here: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+
+Create method to save task to local storage
+it should stringify the object
+
+creat method for category
+
+method to read tasks and categories from local storage
+this should run during startup to load everything
+
 ---
 
 Other things to do:
@@ -94,3 +106,9 @@ Other things to do:
 - Expand task for description
 
 - Add notifications for task creation
+
+- Close modal when clicking outside: https://stackoverflow.com/questions/50037663/how-to-close-a-native-html-dialog-when-clicking-outside-with-javascript
+
+- style emoji picker
+
+- dark mode?
