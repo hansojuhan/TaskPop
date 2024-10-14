@@ -9,10 +9,7 @@
 
     <aside>
       <!-- List of categories -->
-      <ul>
-        <li><a href="">Category 1</a></li>
-        <li><a href="">Category 2</a></li>
-        <li><a href="">Category 3</a></li>
+      <ul id="categories-menu">
       </ul>
     </aside>
 
@@ -50,5 +47,29 @@
         <div id="content"></div>
       </div>
     </main>
+
+    <dialog id="add-category-modal">
+      <form>
+        <h2>Add a book</h2>
+        <div>
+          <label for="name">Book name:</label>
+          <input name="name" type="text" placeholder="The Hobbit" required autofocus>
+        </div>
+        <div>
+          <label for="author">Book author:</label>
+          <input name="author" type="text" placeholder="J.R.R. Tolkien" required>
+        </div>
+        <div>
+          <label for="pages">Number of pages?</label>
+          <input name="pages" type="number" placeholder="295" required>
+        </div>
+        <div>
+          <label for="read">Read yet?</label>
+          <input name="read" type="checkbox">
+        </div>
+        <button id="submitAddBookButton" type="submit">Add</button>
+      </form>
+    </dialog>
+
   </body>
 </html>

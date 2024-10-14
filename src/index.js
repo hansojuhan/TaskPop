@@ -1,5 +1,5 @@
 import "./styles.css";
-import { generateCategoriesDropdownMarkup, generateTaskMarkup } from "./page";
+import * as updatePage from "./page";
 
 class Task {
   constructor(title, description, dueDate, category) {
@@ -45,11 +45,14 @@ window.onload = function() {
     event.preventDefault();
     createNewTask();
   })
+  generateTestData();
 
   // Populate dropdown
-  generateCategoriesDropdownMarkup();
+  updatePage.generateCategoriesDropdownMarkup(categories);
 
-  generateTestData();
+  // Populate menu
+  updatePage.generateCategoriesMenu(categories);
+
 }
 
 function createNewTask() {
@@ -72,7 +75,7 @@ function createNewTask() {
   tasks.push(task);
 
   // Generate markup
-  generateTaskMarkup(task);
+  updatePage.generateTaskMarkup(task);
 
   // Clear the form
   titleInput.value = '';
@@ -83,7 +86,7 @@ function generateTestData() {
 
   let task1 = new Task(
     "finish writing this class",
-    "put things in it like title, desc, due date, status",
+    "put updatePage in it like title, desc, due date, status",
     "2024-10-15"
   );
   let task2 = new Task(
@@ -96,7 +99,7 @@ function generateTestData() {
   tasks.push(task2);
 
 
-  generateTaskMarkup(task1);
+  updatePage.generateTaskMarkup(task1);
   // generateTaskMarkup(task2);
 
   let cat1 = new Category(

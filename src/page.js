@@ -63,7 +63,7 @@ export function generateTaskMarkup(task) {
 }
 
 // Populate the categories
-export function generateCategoriesDropdownMarkup() {
+export function generateCategoriesDropdownMarkup(categories) {
   const dropdown = document.getElementById('category-dropdown');
 
   // Clear existing
@@ -82,4 +82,36 @@ export function generateCategoriesDropdownMarkup() {
     option.innerText = `${category.emoji} ${category.name}`;
     dropdown.append(option);
   });
+}
+
+export function generateCategoriesMenu(categories) {
+  // Find list
+  const menu = document.getElementById('categories-menu');
+
+  // For each category, add a li
+  categories.forEach(category => {
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = '#';
+    link.innerText = `${category.emoji} ${category.name}`;
+    listItem.append(link);
+    menu.append(listItem);
+  });
+
+  // Create the add new category button as well
+  const listItem = document.createElement('li');
+  const newCategoryButton = document.createElement('button');
+  newCategoryButton.type = 'button';
+  newCategoryButton.innerText = 'Add category';
+  listItem.append(newCategoryButton);
+  menu.append(listItem);
+
+  // Add event listener that opens a modal
+  newCategoryButton.addEventListener('click', showNewCategoryModal);
+}
+
+function showNewCategoryModal() {
+  console.log("modal");
+  const modal = document.getElementById('add-category-modal');
+  modal.showModal();
 }
