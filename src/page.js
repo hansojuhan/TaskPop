@@ -1,3 +1,5 @@
+import 'emoji-picker-element';
+
 // Load a new task in the DOM
 export function generateTaskMarkup(task) {
   
@@ -112,7 +114,42 @@ export function generateCategoriesMenu(categories) {
 
 // Export is for testing
 export function showNewCategoryModal() {
-  console.log("modal");
   const modal = document.getElementById('add-category-modal');
+
+  // Add listener for the emoji to open emoji picker
+  const emojiButton = document.getElementById('category-emoji-button');
+  emojiButton.addEventListener('click', showEmojiPicker);
+
   modal.showModal();
+}
+
+// Shows the emoji picker and adds a listener for emoji click
+function showEmojiPicker() {
+  const modal = document.getElementById('add-category-modal');
+
+  const picker = document.createElement('emoji-picker');
+
+  // Set position and styling for the picker
+  picker.style.position = 'fixed'; // or 'absolute' if you want it relative to the button
+  picker.style.top = '75%'; // You can adjust this according to where you want it
+  picker.style.left = '50%'; // Adjust this too
+  picker.style.transform = 'translate(-50%, -50%)'; // Center it
+  picker.style.zIndex = '999'; // High z-index to ensure it appears above everything
+
+  modal.append(picker);
+
+  // Listen to emoji click events
+  document.querySelector('emoji-picker').addEventListener('emoji-click', event => chooseEmojiFromPicker(picker, event));
+}
+
+// Add emoji selection into the button and close the picker
+function chooseEmojiFromPicker(picker, event) {
+  const emojiButton = document.getElementById('category-emoji-button');
+  
+  // Get the emoji selection
+  console.log(event.detail.unicode);
+  emojiButton.innerText = event.detail.unicode;
+
+  // Close the picker
+  picker.remove();
 }

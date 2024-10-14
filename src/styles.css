@@ -319,7 +319,7 @@ header {
 
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
 
   justify-content: space-between;
 }
@@ -328,7 +328,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  gap: 1rem;
   width: 100%;
 }
 
@@ -340,7 +340,6 @@ header {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-
 }
 
 #category-modal-fields > div {
@@ -357,7 +356,24 @@ header {
   width: 75%;
 }
 
-#add-category-button {
+/* Styles for the emoji input */
+#category-modal-fields button[name=emoji] {
+  font-size: 2rem;
+
+  border: none;
+  background: none;
+  padding: none;
+
+  text-align: center;
+  line-height: 2.5rem;
+}
+
+#category-modal-fields button[name=emoji]:hover { 
+  background-color: var(--dark);
+}
+
+
+.category-modal-button {
   border: none;
   width: 4rem;
   height: 2rem;
@@ -365,7 +381,7 @@ header {
   font-size: 1.25rem;
 }
 
-#add-category-button:hover {
+.category-modal-button:hover {
   background-color: var(--very-dark);
   cursor: pointer;
 }
@@ -374,4 +390,8 @@ header {
   font-size: 1.25rem;
 
   padding: 0.5rem;
+}
+
+emoji-picker {
+  position: absolute;
 }

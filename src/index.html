@@ -49,17 +49,18 @@
       <form>
         <div id="category-modal-header">
           <h2>Add a category</h2>
-          <button id="add-category-button" type="button">Add</button>
+          <button class="category-modal-button" id="cancel-category-button" type="button">Cancel</button>
+          <button class="category-modal-button" id="add-category-button" type="button">Add</button>
         </div>
 
         <div id="category-modal-fields">
           <div>
-            <label for="author">Emoji</label>
-            <input name="emoji" type="text" required/>
+            <!-- <label for="emoji">Symbol</label> -->
+            <button id="category-emoji-button" name="emoji" type="button">📃</button>
           </div>
           <div>
-            <label for="name">Category name</label>
-            <input name="name" type="text" required placeholder="asdfasdfasdf" autofocus />
+            <!-- <label for="name">Category name</label> -->
+            <input name="name" type="text" required placeholder="Add name..." autofocus />
           </div>
         </div>
       </form>
