@@ -6,11 +6,9 @@
     <title>Document</title>
   </head>
   <body>
-
     <aside>
       <!-- List of categories -->
-      <ul id="categories-menu">
-      </ul>
+      <ul id="categories-menu"></ul>
     </aside>
 
     <!-- Main content -->
@@ -34,8 +32,7 @@
             <div id="task-form-date-category">
               <input type="date" name="due-date" />
               <!-- Placeholder for category input -->
-              <select name="category" id="category-dropdown">
-              </select>
+              <select name="category" id="category-dropdown"></select>
             </div>
           </div>
           <!-- Submit -->
@@ -50,26 +47,22 @@
 
     <dialog id="add-category-modal">
       <form>
-        <h2>Add a book</h2>
-        <div>
-          <label for="name">Book name:</label>
-          <input name="name" type="text" placeholder="The Hobbit" required autofocus>
+        <div id="category-modal-header">
+          <h2>Add a category</h2>
+          <button id="add-category-button" type="button">Add</button>
         </div>
-        <div>
-          <label for="author">Book author:</label>
-          <input name="author" type="text" placeholder="J.R.R. Tolkien" required>
+
+        <div id="category-modal-fields">
+          <div>
+            <label for="author">Emoji</label>
+            <input name="emoji" type="text" required/>
+          </div>
+          <div>
+            <label for="name">Category name</label>
+            <input name="name" type="text" required placeholder="asdfasdfasdf" autofocus />
+          </div>
         </div>
-        <div>
-          <label for="pages">Number of pages?</label>
-          <input name="pages" type="number" placeholder="295" required>
-        </div>
-        <div>
-          <label for="read">Read yet?</label>
-          <input name="read" type="checkbox">
-        </div>
-        <button id="submitAddBookButton" type="submit">Add</button>
       </form>
     </dialog>
-
   </body>
 </html>

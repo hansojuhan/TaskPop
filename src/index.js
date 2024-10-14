@@ -111,4 +111,6 @@ function generateTestData() {
     "💻"
   );
   categories.push(cat1, cat2);
+
+  updatePage.showNewCategoryModal();
 }

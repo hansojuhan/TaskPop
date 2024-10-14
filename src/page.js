@@ -110,7 +110,8 @@ export function generateCategoriesMenu(categories) {
   newCategoryButton.addEventListener('click', showNewCategoryModal);
 }
 
-function showNewCategoryModal() {
+// Export is for testing
+export function showNewCategoryModal() {
   console.log("modal");
   const modal = document.getElementById('add-category-modal');
   modal.showModal();
