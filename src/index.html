@@ -6,33 +6,50 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- New task form -->
-    <form id="task-form">
-      <div id="task-form-section">
-        <div>
-          <input
-            type="text"
-            name="title"
-            placeholder="What do you need to finish?"
-            autofocus
-          />
-        </div>
 
-        <div id="task-form-date-category">
-          <input type="date" name="due-date" />
-          <!-- Placeholder for category input -->
-          <select name="category" id="category-dropdown">
-            <option selected value="💻 Programming">💻 Programming</option>
-          </select>
-        </div>
+    <aside>
+      <!-- List of categories -->
+      <ul>
+        <li><a href="">Category 1</a></li>
+        <li><a href="">Category 2</a></li>
+        <li><a href="">Category 3</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+      <header>
+        <h1>Header</h1>
+      </header>
+
+      <div id="main-container">
+        <!-- New task form -->
+        <form id="task-form">
+          <div id="task-form-section">
+            <div>
+              <input
+                type="text"
+                name="title"
+                placeholder="What do you need to finish?"
+                autofocus
+              />
+            </div>
+            <div id="task-form-date-category">
+              <input type="date" name="due-date" />
+              <!-- Placeholder for category input -->
+              <select name="category" id="category-dropdown">
+                <option selected value="💻 Programming">💻 Programming</option>
+              </select>
+            </div>
+          </div>
+          <!-- Submit -->
+          <div id="button-container">
+            <button id="new-task-button" type="button">+</button>
+          </div>
+        </form>
+        <!-- Tasks here -->
+        <div id="content"></div>
       </div>
-
-      <!-- Submit -->
-      <div id="button-container">
-        <button id="new-task-button" type="button">+</button>
-      </div>
-    </form>
-
-    <div id="content"></div>
+    </main>
   </body>
 </html>
