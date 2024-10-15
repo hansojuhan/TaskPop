@@ -1,5 +1,9 @@
 import "./styles.css";
 import * as updatePage from "./page";
+import { saveTasksToLocal, loadTasksFromLocal } from "./localStorage";
+
+let tasks = [];
+let categories = [];
 
 class Task {
   constructor(title, description, dueDate, category) {
@@ -20,8 +24,6 @@ class Category {
 // Main content div
 const content = document.getElementById('content');
 
-let tasks = []
-let categories = []
 
 const defaultCategory = new Category(
   '',
@@ -29,7 +31,7 @@ const defaultCategory = new Category(
 );
 
 window.onload = function() {
-  // When title is clicked, select all
+  // When title is clicked, select all in the field
   const titleInput = document.querySelector('input[name=title]');
   titleInput.addEventListener('click', () => {
     titleInput.select();
@@ -39,13 +41,22 @@ window.onload = function() {
   const newTaskButton = document.getElementById('new-task-button');
   newTaskButton.addEventListener('click', createNewTask);
 
-  // Prevent form submission
+  // Listen for new task clicks, prevent form submission
   const form = document.getElementById('task-form');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     createNewTask();
   })
-  generateTestData();
+
+  // Load tasks from local storage
+  tasks = loadTasksFromLocal();
+
+  // Populate tasks on the page
+  tasks.forEach(task => {
+    updatePage.generateTaskMarkup(task);
+  });
+
+  // generateTestData();
 
   // Populate dropdown
   updatePage.generateCategoriesDropdownMarkup(categories);
@@ -111,6 +122,9 @@ function createNewTask() {
   // Clear the form
   titleInput.value = '';
   titleInput.focus();
+
+  // Save tasks to local storage
+  saveTasksToLocal(tasks);
 }
 
 function generateTestData() {
