@@ -87,6 +87,13 @@ export function generateCategoriesDropdownMarkup(categories) {
 }
 
 export function generateCategoriesMenu(categories) {
+
+  // Make sure categories is a valid array before using forEach
+  if (!Array.isArray(categories) || categories.length === 0) {
+    console.warn("No categories available to display.");
+    return;
+  }
+
   // Find list
   const menu = document.getElementById('categories-menu');
 

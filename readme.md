@@ -67,23 +67,13 @@ Store data using localStorage
 
 [] 7. Create project selection and project view
 
-[ ] 8. Implement localStorage
-
-Create a new file for the functionality
-
-Add methods from here: https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
-
-Create method to save task to local storage
-it should stringify the object
-
-creat method for category
-
-method to read tasks and categories from local storage
-this should run during startup to load everything
+[x] 8. Implement localStorage
 
 ---
 
 Other things to do:
+
+- Save the task status (open, done)
 
 - Add form validations everywhere
 

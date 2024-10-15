@@ -1,6 +1,6 @@
 import "./styles.css";
 import * as updatePage from "./page";
-import { saveTasksToLocal, loadTasksFromLocal } from "./localStorage";
+import { saveTasksToLocal, loadTasksFromLocal, saveCategoriesToLocal, loadCategoriesFromLocal } from "./localStorage";
 
 let tasks = [];
 let categories = [];
@@ -48,25 +48,28 @@ window.onload = function() {
     createNewTask();
   })
 
+  // Add listener for Add category
+  const addButton = document.getElementById('add-category-button');
+  addButton.addEventListener('click', addNewCategory);
+
   // Load tasks from local storage
   tasks = loadTasksFromLocal();
-
+  console.log(tasks);
+  
   // Populate tasks on the page
   tasks.forEach(task => {
     updatePage.generateTaskMarkup(task);
   });
 
+  // Load categories from local storage
   // generateTestData();
+  categories = loadCategoriesFromLocal();
+  console.log(categories);
 
-  // Populate dropdown
+  // Populate categories on page, in dropdowns and in menu
+  updatePage.generateCategoriesMenu(categories);
   updatePage.generateCategoriesDropdownMarkup(categories);
 
-  // Populate menu
-  updatePage.generateCategoriesMenu(categories);
-
-  // Add listener for Add category
-  const addButton = document.getElementById('add-category-button');
-  addButton.addEventListener('click', addNewCategory);
 }
 
 // Creates new category, adds it to categories array, closes the modal
@@ -86,6 +89,9 @@ function addNewCategory() {
 
   // Push to array
   categories.push(category);
+
+  // Update local storage
+  saveCategoriesToLocal(categories);
 
   // Update the sidebar
   updatePage.generateCategoriesMenu(categories);

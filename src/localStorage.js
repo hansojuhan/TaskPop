@@ -1,43 +1,32 @@
-// function that detects whether localStorage is both supported and available
-function storageAvailable(type) {
-  let storage;
-  try {
-    storage = window[type];
-    const x = "__storage_test__";
-    storage.setItem(x, x);
-    storage.removeItem(x);
-    return true;
-  } catch (e) {
-    return (
-      e instanceof DOMException &&
-      e.name === "QuotaExceededError" &&
-      // acknowledge QuotaExceededError only if there's something already stored
-      storage &&
-      storage.length !== 0
-    );
-  }
-}
-
+// Loads tasks from local storage and returns it or empty array, if not found
 export function loadTasksFromLocal() {
-  // // Check if localstorage can be used
-  // if (storageAvailable("localStorage")) {
-  //   // Yippee! We can use localStorage awesomeness
-  // } else {
-  //   // Too bad, no localStorage for us
-  //   console.log("Localstorage is not available!");
-  // }
-  let savedTasks = []
+  // Retrieve categories
+  const savedTasks = localStorage.getItem('tasks');
 
-  if (localStorage.getItem('tasks')) {
-    // const tasks = JSON.parse(localStorage.getItem('tasks'));
-    savedTasks = localStorage.getItem('tasks');
-    console.log("retrieved tasks:");
-    console.log(savedTasks);
+  // If result is valid, parse it, otherwise return an empty array
+  try {
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  } catch (error) {
+    console.error("Error parsing categories from localStorage:", error);
+    return [];
   }
-
-  return savedTasks ? JSON.parse(savedTasks) : [];
 }
 
+// Loads categories from local storage and returns it or empty array, if not found
+export function loadCategoriesFromLocal() {
+  // Retrieve categories
+  let savedCategories = localStorage.getItem('categories');
+
+  // If result is valid, parse it, otherwise return an empty array
+  try {
+    return savedCategories ? JSON.parse(savedCategories) : [];
+  } catch (error) {
+    console.error("Error parsing categories from localStorage:", error);
+    return [];
+  }
+}
+
+// Updates the tasks saved locally by removing the previous and resaving it
 export function saveTasksToLocal(tasks) {
   // Check if tasks already exists, if yes, remove it
   if (localStorage.getItem('tasks')) {
@@ -47,6 +36,18 @@ export function saveTasksToLocal(tasks) {
   // Stringify the tasks array and save it
   localStorage.setItem("tasks", JSON.stringify(tasks));
 
-  console.log("from local:");
-  console.log(localStorage.getItem("tasks"));
+  console.log("Categories saved to local:", localStorage.getItem('tasks'));
+}
+
+// Updates the categories saved locally by removing the previous and resaving it
+export function saveCategoriesToLocal(categories) {
+  // Check if categories already exists, if yes, remove it
+  if (localStorage.getItem('categories')) {
+    localStorage.removeItem('categories');
+  }
+
+  // Stringify the tasks array and save it
+  localStorage.setItem("categories", JSON.stringify(categories));
+
+  console.log("Categories saved to local:", categories);
 }
