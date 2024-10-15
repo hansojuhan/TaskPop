@@ -3,6 +3,24 @@ import 'emoji-picker-element';
 import { updateTaskStatus, showCategory } from './index';
 import { getCategoryById } from './localStorage';
 
+// Updates the h1 in the header
+export function updatePageHeader(text) {
+  const header = document.getElementById('header');
+  header.innerText = text;
+}
+
+// Regenerate all tasks
+export function regenerateAllTasksMarkup(tasks) {
+  // Clear the previous
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  
+  // Populate tasks on the page
+  tasks.forEach(task => {
+    generateTaskMarkup(task);
+  });
+}
+
 // Load a new task in the DOM
 export function generateTaskMarkup(task) {
   

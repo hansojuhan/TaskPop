@@ -54,9 +54,7 @@ window.onload = function() {
   console.log(tasks);
   
   // Populate tasks on the page
-  tasks.forEach(task => {
-    updatePage.generateTaskMarkup(task);
-  });
+  updatePage.regenerateAllTasksMarkup(tasks);
 
   // Load categories from local storage
   // generateTestData();
@@ -189,12 +187,17 @@ export function updateTaskStatus(event) {
 }
 
 export function showCategory(category) {
-
   // Filter tasks of a project
-  console.log('click', category);
+  const categoryTasks = tasks.filter(t => t.category == category.id);
 
-  const categoryTasks = tasks.filter(t => t.category == category);
+  // Populate tasks on the page
+  updatePage.regenerateAllTasksMarkup(categoryTasks);
 
-  console.log(categoryTasks);
+  // Update page header
+  updatePage.updatePageHeader(`${category.emoji} ${category.name}`);
+
+  // Select menu item
   
 }
+
+
