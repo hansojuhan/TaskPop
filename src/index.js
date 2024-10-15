@@ -6,11 +6,13 @@ let tasks = [];
 let categories = [];
 
 class Task {
-  constructor(title, description, dueDate, category) {
+  constructor(id, title, description, dueDate, category) {
+    this.id = id; // Unique ID
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.category = category;
+    this.isDone = false;
   }
 }
 
@@ -111,8 +113,12 @@ function createNewTask() {
   const dueDate = document.querySelector('input[name=due-date]').value;
   const category = document.querySelector('select[name=category]').value ;
 
+  // Use current time as unique ID
+  const id = Date.now();
+
   // Create new object
   let task = new Task(
+    id,
     titleInput.value,
     '',
     category,
@@ -162,4 +168,24 @@ function generateTestData() {
     "💻"
   );
   categories.push(cat1, cat2);
+}
+
+// Updates task status on click
+export function updateTaskStatus(event) {
+  const checkbox = event.target;
+  const taskId = checkbox.getAttribute('data-id');
+
+  // t.id === taskId will give false, since === also checks the type
+  // t.id is a number, taskId is a string
+  // Solution 1: use ==, which does the conversions by itself
+  // Solution 2: use === Number(taskId) to convert to number
+  const task = tasks.find(t => t.id == taskId);
+  
+  if (task) {
+    task.isDone = checkbox.checked;
+    console.log(`Task "${task.title}" updated. Completed: ${task.isDone}`);
+
+    // Update local storage
+    saveTasksToLocal(tasks);
+  }
 }

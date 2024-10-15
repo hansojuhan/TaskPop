@@ -1,5 +1,7 @@
 import 'emoji-picker-element';
 
+import { updateTaskStatus } from './index';
+
 // Load a new task in the DOM
 export function generateTaskMarkup(task) {
   
@@ -10,6 +12,15 @@ export function generateTaskMarkup(task) {
   const status = document.createElement('input');
   status.classList.add('status');
   status.type = 'checkbox';
+
+  // Set value according to 
+  status.checked = task.isDone;
+
+  // Add the task ID to the checkbox
+  status.setAttribute('data-id', task.id);
+
+  // Add a listener for the checkbox, so task status could be updated if checked
+  status.addEventListener('click', updateTaskStatus);
 
   // Container for content, contains everything else
   const taskContent = document.createElement('div');
@@ -170,3 +181,5 @@ function chooseEmojiFromPicker(picker, event) {
   // Close the picker
   picker.remove();
 }
+
+
