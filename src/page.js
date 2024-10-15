@@ -1,6 +1,7 @@
 import 'emoji-picker-element';
 
 import { updateTaskStatus, showCategory } from './index';
+import { getCategoryById } from './localStorage';
 
 // Load a new task in the DOM
 export function generateTaskMarkup(task) {
@@ -36,7 +37,10 @@ export function generateTaskMarkup(task) {
 
   const category = document.createElement('p');
   category.classList.add('category');
-  category.innerText = task.category;
+
+  // Fetch category by the id saved in task object to get the emoji and name
+  const categoryValue = getCategoryById(task.category);
+  category.innerText = `${categoryValue.emoji} ${categoryValue.name}`
 
   const dueDate = document.createElement('p');
   dueDate.classList.add('due-date');
@@ -86,12 +90,13 @@ export function generateCategoriesDropdownMarkup(categories) {
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
   defaultOption.innerText = 'Choose category';
+
   dropdown.append(defaultOption);
 
   // Loop through categories and populate
   categories.forEach(category => {
     const option = document.createElement('option');
-    option.value = `${category.emoji} ${category.name}`;
+    option.value = category.id;
     option.innerText = `${category.emoji} ${category.name}`;
     dropdown.append(option);
   });
@@ -102,7 +107,7 @@ export function generateCategoriesMenu(categories) {
   // Make sure categories is a valid array before using forEach
   if (!Array.isArray(categories) || categories.length === 0) {
     console.warn("No categories available to display.");
-    return;
+    // return;
   }
 
   // Find list

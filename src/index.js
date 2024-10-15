@@ -17,7 +17,8 @@ class Task {
 }
 
 class Category {
-  constructor(name, emoji) {
+  constructor(id, name, emoji) {
+    this.id = id;
     this.name = name;
     this.emoji = emoji;
   }
@@ -25,12 +26,6 @@ class Category {
 
 // Main content div
 const content = document.getElementById('content');
-
-
-const defaultCategory = new Category(
-  '',
-  ''
-);
 
 window.onload = function() {
   // When title is clicked, select all in the field
@@ -83,8 +78,11 @@ function addNewCategory() {
   // Capitalize the name
   name = name.charAt(0).toUpperCase() + name.slice(1);
 
+  const id = Date.now();
+
   // Create new category
   const category = new Category (
+    id,
     name,
     emoji
   );
@@ -111,7 +109,7 @@ function createNewTask() {
   
   const titleInput = document.querySelector('input[name=title]');
   const dueDate = document.querySelector('input[name=due-date]').value;
-  const category = document.querySelector('select[name=category]').value ;
+  const category = document.querySelector('select[name=category]').value;
 
   // Use current time as unique ID
   const id = Date.now();
@@ -121,8 +119,8 @@ function createNewTask() {
     id,
     titleInput.value,
     '',
-    category,
-    dueDate
+    dueDate,
+    category
   );
 
   // Add to array
@@ -194,4 +192,9 @@ export function showCategory(category) {
 
   // Filter tasks of a project
   console.log('click', category);
+
+  const categoryTasks = tasks.filter(t => t.category == category);
+
+  console.log(categoryTasks);
+  
 }

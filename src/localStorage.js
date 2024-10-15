@@ -51,3 +51,26 @@ export function saveCategoriesToLocal(categories) {
 
   console.log("Categories saved to local:", categories);
 }
+
+// Looks for a category in local storage by id and returns it, if found.
+export function getCategoryById(categoryId) {
+  // Retrieve
+  const storedCategories = localStorage.getItem('categories');
+
+  // Check if categories exists
+  if (!storedCategories) {
+    console.log(`Category id:${categoryid} not found in local storage!`);
+    return null;
+  }
+
+  // Parse and find
+  const categories = JSON.parse(storedCategories)
+  const category = categories.find(c => c.id == categoryId);
+
+  if (category) {
+    return category;
+  } else {
+    console.log(`Category with id: ${categoryId} not found!`);
+    return null;
+  }
+}

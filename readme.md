@@ -102,3 +102,5 @@ Other things to do:
 - style emoji picker
 
 - dark mode?
+
+- Save task if pressing cmd + enter
