@@ -1,6 +1,6 @@
 import 'emoji-picker-element';
 
-import { updateTaskStatus, showCategory } from './index';
+import { updateTaskStatus, showCategory, showAllCategories } from './index';
 import { getCategoryById } from './localStorage';
 
 // Updates the h1 in the header
@@ -134,6 +134,21 @@ export function generateCategoriesMenu(categories) {
   // Clear menu
   menu.innerHTML = '';
 
+  // Add the all tasks link
+  const allTasksItem = document.createElement('li');
+  const allTasksButton = document.createElement('button');
+  allTasksButton.type = 'button';
+  allTasksButton.innerText = '🗒️ All tasks';
+
+  allTasksButton.addEventListener('click', () => {
+    // Remove active from other possibly highlighted menu items
+    removeActiveClassFromMenu(menu);
+    showAllCategories();
+  });
+
+  allTasksItem.append(allTasksButton);
+  menu.append(allTasksItem);
+
   // For each category, add a li
   categories.forEach(category => {
     const listItem = document.createElement('li');
@@ -142,7 +157,14 @@ export function generateCategoriesMenu(categories) {
     link.innerText = `${category.emoji} ${category.name}`;
 
     // Add listener for button click
-    link.addEventListener('click', () => showCategory(category));
+    link.addEventListener('click', () => {
+      // Remove active from other possibly highlighted menu items
+      removeActiveClassFromMenu(menu);
+      // Highlight menu
+      link.classList.add('menu-active');
+      // Call function to show tasks
+      showCategory(category);
+    });
 
     listItem.append(link);
     menu.append(listItem);
@@ -152,7 +174,7 @@ export function generateCategoriesMenu(categories) {
   const listItem = document.createElement('li');
   const newCategoryButton = document.createElement('button');
   newCategoryButton.type = 'button';
-  newCategoryButton.innerText = 'Add category';
+  newCategoryButton.innerText = '➕ Add category';
   listItem.append(newCategoryButton);
   menu.append(listItem);
 
@@ -209,4 +231,11 @@ function chooseEmojiFromPicker(picker, event) {
   picker.remove();
 }
 
-
+// Helper function to remove the active class from all menu items
+function removeActiveClassFromMenu(menu) {
+  // Remove 'menu-active' class from all items in the menu
+  const activeItems = menu.querySelectorAll('.menu-active');
+  activeItems.forEach(item => {
+    item.classList.remove('menu-active');
+  });
+}

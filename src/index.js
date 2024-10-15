@@ -195,9 +195,12 @@ export function showCategory(category) {
 
   // Update page header
   updatePage.updatePageHeader(`${category.emoji} ${category.name}`);
-
-  // Select menu item
-  
 }
 
+export function showAllCategories() {
+  // Populate tasks on the page
+  updatePage.regenerateAllTasksMarkup(tasks);
 
+  // Update page header
+  updatePage.updatePageHeader('Todo');
+}

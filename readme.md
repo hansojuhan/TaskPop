@@ -65,7 +65,7 @@ Store data using localStorage
 
 [x] 6. Apply project selection to task
 
-[] 7. Create project selection and project view
+[x] 7. Create project selection and project view
 
 [x] 8. Implement localStorage
 
@@ -87,7 +87,7 @@ Other things to do:
 
 - Add titles
 
-- Make category menu items fully clickable
+- [ ] Make category menu items fully clickable
 
 - Hide task if done
 
