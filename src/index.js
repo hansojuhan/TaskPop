@@ -189,3 +189,9 @@ export function updateTaskStatus(event) {
     saveTasksToLocal(tasks);
   }
 }
+
+export function showCategory(category) {
+
+  // Filter tasks of a project
+  console.log('click', category);
+}

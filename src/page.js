@@ -1,6 +1,6 @@
 import 'emoji-picker-element';
 
-import { updateTaskStatus } from './index';
+import { updateTaskStatus, showCategory } from './index';
 
 // Load a new task in the DOM
 export function generateTaskMarkup(task) {
@@ -114,9 +114,13 @@ export function generateCategoriesMenu(categories) {
   // For each category, add a li
   categories.forEach(category => {
     const listItem = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = '#';
+    const link = document.createElement('button');
+    link.type = 'button';
     link.innerText = `${category.emoji} ${category.name}`;
+
+    // Add listener for button click
+    link.addEventListener('click', () => showCategory(category));
+
     listItem.append(link);
     menu.append(listItem);
   });
