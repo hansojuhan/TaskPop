@@ -73,34 +73,34 @@ Store data using localStorage
 
 Other things to do:
 
-- Save the task status (open, done)
+- [x] Save the task status (open, done)
 
-- Add form validations everywhere
-
-- Fix the emojipicker positioning, should be close to the emoji
-
-- Make mobile-friendy (currently everything breaks)
+- Expand task for description
 
 - Edit categories
 
+- Add form validations everywhere
+
 - Add css animations for buttons and modal openings
 
-- Add titles
+- Make mobile-friendy (currently everything breaks)
 
-- [ ] Make category menu items fully clickable
+- Fix the emojipix cker positioning, should be close to the emoji
+
+- [x] Add titles
+
+- [x] Make category menu items fully clickable
 
 - Hide task if done
 
 - Format dates
 
-- Expand task for description
+- Close modal when clicking outside: https://stackoverflow.com/questions/50037663/how-to-close-a-native-html-dialog-when-clicking-outside-with-javascript
+
+- Save task if pressing cmd + enter
 
 - Add notifications for task creation
-
-- Close modal when clicking outside: https://stackoverflow.com/questions/50037663/how-to-close-a-native-html-dialog-when-clicking-outside-with-javascript
 
 - style emoji picker
 
 - dark mode?
-
-- Save task if pressing cmd + enter

@@ -322,6 +322,8 @@ header {
   user-select: none;
 
   cursor: pointer;
+
+  margin-right: 1rem;
 }
 
 /* ******************************************************** */

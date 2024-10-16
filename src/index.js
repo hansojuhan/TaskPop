@@ -53,8 +53,8 @@ window.onload = function() {
   tasks = loadTasksFromLocal();
   console.log(tasks);
   
-  // Populate tasks on the page
-  updatePage.regenerateAllTasksMarkup(tasks);
+  // Show all categories by default
+  showAllCategories();
 
   // Load categories from local storage
   // generateTestData();
@@ -64,7 +64,6 @@ window.onload = function() {
   // Populate categories on page, in dropdowns and in menu
   updatePage.generateCategoriesMenu(categories);
   updatePage.generateCategoriesDropdownMarkup(categories);
-
 }
 
 // Creates new category, adds it to categories array, closes the modal
