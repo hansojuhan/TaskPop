@@ -64,6 +64,14 @@ window.onload = function() {
 
 // Creates new category, adds it to categories array, closes the modal
 export function addNewCategory() {
+  const form = document.getElementById('add-category-modal-form');
+
+  // Add validations to the form
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
   // Get values from the form
   const emoji = document.getElementById('category-emoji-button').innerText;
   let name = document.querySelector('input[name="name"]').value;
@@ -173,6 +181,14 @@ export function showAllCategories() {
 }
 
 export function editCategory(categoryId) {
+  const form = document.getElementById('add-category-modal-form');
+  
+  // Add validations to the form
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  
   // Get values from the form
   const newEmoji = document.getElementById('category-emoji-button').innerText;
   let newName = document.querySelector('input[name="name"]').value;

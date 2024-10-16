@@ -91,7 +91,7 @@ Other things to do:
 
 - Hide task if done
 
-- Format dates
+- [x] Format dates
 
 - Close modal when clicking outside: https://stackoverflow.com/questions/50037663/how-to-close-a-native-html-dialog-when-clicking-outside-with-javascript
 

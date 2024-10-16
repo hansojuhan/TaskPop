@@ -50,7 +50,7 @@
 
     <!-- New category modal -->
     <dialog id="add-category-modal">
-      <form>
+      <form id="add-category-modal-form">
         <div id="category-modal-header">
           <h2>Add a category</h2>
           <button
@@ -78,6 +78,8 @@
               required
               placeholder="Add name..."
               autofocus
+              pattern="[a-zA-Z0-9]{0,200}"
+              title="Please enter only letters and numbers."
             />
           </div>
         </div>
