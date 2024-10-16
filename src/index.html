@@ -27,10 +27,13 @@
                 name="title"
                 placeholder="What do you need to finish?"
                 autofocus
+                maxlength="200"
+                minlength="0"
+                required
               />
             </div>
             <div id="task-form-date-category">
-              <input type="date" name="due-date" />
+              <div id="date-input-wrapper"><input type="date" name="due-date" /></div>
               <!-- Placeholder for category input -->
               <select name="category" id="category-dropdown"></select>
             </div>
@@ -45,25 +48,39 @@
       </div>
     </main>
 
+    <!-- New category modal -->
     <dialog id="add-category-modal">
       <form>
         <div id="category-modal-header">
           <h2>Add a category</h2>
-          <button class="category-modal-button" id="add-category-button" type="button">Add</button>
+          <button
+            class="category-modal-button"
+            id="add-category-button"
+            type="button"
+          >
+            Add
+          </button>
         </div>
 
         <div id="category-modal-fields">
           <div>
             <!-- <label for="emoji">Symbol</label> -->
-            <button id="category-emoji-button" name="emoji" type="button">📃</button>
+            <button id="category-emoji-button" name="emoji" type="button">
+              📃
+            </button>
           </div>
           <div>
             <!-- <label for="name">Category name</label> -->
-            <input id="category-name-button" name="name" type="text" required placeholder="Add name..." autofocus />
+            <input
+              id="category-name-button"
+              name="name"
+              type="text"
+              required
+              placeholder="Add name..."
+              autofocus
+            />
           </div>
         </div>
-
-
       </form>
     </dialog>
   </body>

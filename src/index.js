@@ -99,13 +99,17 @@ export function addNewCategory() {
 function createNewTask() {
   // Get values from the form
   const form = document.getElementById('task-form');
+
+  // Add validations to the form
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
   
+  const id = Date.now(); // Use current time as unique ID
   const titleInput = document.querySelector('input[name=title]');
   const dueDate = document.querySelector('input[name=due-date]').value;
   const category = document.querySelector('select[name=category]').value;
-
-  // Use current time as unique ID
-  const id = Date.now();
 
   // Create new object
   let task = new Task(
@@ -127,37 +131,6 @@ function createNewTask() {
 
   // Save tasks to local storage
   saveTasksToLocal(tasks);
-}
-
-function generateTestData() {
-
-  let task1 = new Task(
-    "finish writing this class",
-    "put updatePage in it like title, desc, due date, status",
-    "2024-10-15"
-  );
-  let task2 = new Task(
-    "Second task",
-    "Some other stuff: title, desc, due date, status",
-    "2024-10-15"
-  );
-  
-  tasks.push(task1);
-  tasks.push(task2);
-
-
-  updatePage.generateTaskMarkup(task1);
-  // generateTaskMarkup(task2);
-
-  let cat1 = new Category(
-    "Sport",
-    "🤾"
-  );
-  let cat2 = new Category(
-    "Programming",
-    "💻"
-  );
-  categories.push(cat1, cat2);
 }
 
 // Updates task status on click
@@ -224,3 +197,34 @@ export function editCategory(categoryId) {
   // Close this modal
   updatePage.closeModal('add-category-modal');
 }
+
+// function generateTestData() {
+
+//   let task1 = new Task(
+//     "finish writing this class",
+//     "put updatePage in it like title, desc, due date, status",
+//     "2024-10-15"
+//   );
+//   let task2 = new Task(
+//     "Second task",
+//     "Some other stuff: title, desc, due date, status",
+//     "2024-10-15"
+//   );
+  
+//   tasks.push(task1);
+//   tasks.push(task2);
+
+
+//   updatePage.generateTaskMarkup(task1);
+//   // generateTaskMarkup(task2);
+
+//   let cat1 = new Category(
+//     "Sport",
+//     "🤾"
+//   );
+//   let cat2 = new Category(
+//     "Programming",
+//     "💻"
+//   );
+//   categories.push(cat1, cat2);
+// }

@@ -65,7 +65,7 @@ export function generateTaskMarkup(task) {
   if (categoryValue) {
     category.innerText = `${categoryValue.emoji} ${categoryValue.name}`;
   } else {
-    category.innerText = 'Unknown category'; // Fallback text for missing category
+    category.innerText = ''; // Fallback text for missing category
   }
 
   const dueDate = document.createElement('p');
@@ -115,7 +115,7 @@ export function generateCategoriesDropdownMarkup(categories) {
   // Add default option
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
-  defaultOption.innerText = 'Choose category';
+  defaultOption.innerText = '🗒️ Category';
 
   dropdown.append(defaultOption);
 

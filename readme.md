@@ -75,7 +75,7 @@ Other things to do:
 
 - [x] Save the task status (open, done)
 
-- Edit categories
+- [x] Edit categories
 
 - Add form validations everywhere
 
