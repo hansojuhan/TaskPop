@@ -177,7 +177,7 @@ export function showAllCategories() {
   updatePage.regenerateAllTasksMarkup(tasks);
 
   // Update page header
-  updatePage.updatePageHeader('Todo');
+  updatePage.updatePageHeader('Todo List');
 }
 
 export function editCategory(categoryId) {
@@ -188,7 +188,7 @@ export function editCategory(categoryId) {
     form.reportValidity();
     return;
   }
-  
+
   // Get values from the form
   const newEmoji = document.getElementById('category-emoji-button').innerText;
   let newName = document.querySelector('input[name="name"]').value;

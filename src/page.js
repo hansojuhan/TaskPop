@@ -99,7 +99,7 @@ export function generateCategoriesDropdownMarkup(categories) {
   // Add default option
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
-  defaultOption.innerText = '🗒️ Choose category...';
+  defaultOption.innerText = '🗒️ Choose category';
 
   dropdown.append(defaultOption);
 

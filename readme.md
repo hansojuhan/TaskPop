@@ -79,7 +79,9 @@ Other things to do:
 
 - [x] Add form validations everywhere
 
-- Add css animations for buttons and modal openings
+- [x] Add css animations for buttons and modal openings
+
+- [ ] Fix long text overflowing
 
 - Make mobile-friendy (currently everything breaks)
 
