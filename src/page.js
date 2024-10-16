@@ -31,16 +31,14 @@ export function generateTaskMarkup(task) {
   const container = document.createElement('div');
   container.classList.add('task');
 
+  // Status
   const status = document.createElement('input');
   status.classList.add('status');
   status.type = 'checkbox';
-
   // Set value according to 
   status.checked = task.isDone;
-
   // Add the task ID to the checkbox
   status.setAttribute('data-id', task.id);
-
   // Add a listener for the checkbox, so task status could be updated if checked
   status.addEventListener('click', updateTaskStatus);
 
@@ -48,6 +46,7 @@ export function generateTaskMarkup(task) {
   const taskContent = document.createElement('div');
   taskContent.classList.add('task-content');
 
+  // Header
   const header = document.createElement('h2');
   header.classList.add('title');
   header.innerText = task.title;
@@ -56,6 +55,7 @@ export function generateTaskMarkup(task) {
   const dateCategoryContainer = document.createElement('div');
   dateCategoryContainer.classList.add('date-category-container');
 
+  // Category
   const category = document.createElement('p');
   category.classList.add('category');
 
@@ -67,41 +67,25 @@ export function generateTaskMarkup(task) {
   } else {
     category.innerText = ''; // Fallback text for missing category
   }
-
+  
+  // Due date
   const dueDate = document.createElement('p');
   dueDate.classList.add('due-date');
-  dueDate.innerText = task.dueDate;
+
+  // Check if due date exists
+  if (task.dueDate) {
+    // Format the date
+    const formattedDate = new Date(task.dueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    dueDate.innerText = formattedDate;
+  } else {
+    dueDate.innerHTML = '';
+  }
 
   dateCategoryContainer.append(category, dueDate);
-
-
-  // const description = document.createElement('p');
-  // description.classList.add('description');
-  // description.innerText = task.description;
-
   taskContent.append(header, dateCategoryContainer);
-
-
-  // Finally, a chevron for expanding the task
-  // const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  // chevron.setAttributeNS(null, 'viewBox', "0 0 24 24");
-  // chevron.setAttributeNS(null, 'fill', "none");
-  // chevron.setAttributeNS(null, 'stroke-width', "1.5");
-  // chevron.setAttributeNS(null, 'stroke', "currentColor");
-  // chevron.setAttributeNS(null, 'class', "task-chevron");
-
-  // const chevronPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  // chevronPath.setAttributeNS(null, "stroke-linecap", "round");
-  // chevronPath.setAttributeNS(null, "stroke-linejoin", "round");
-  // chevronPath.setAttributeNS(null, "d", "m19.5 8.25-7.5 7.5-7.5-7.5");
-
-  // chevron.append(chevronPath);
-
-  // container.append(status, taskContent);
   container.append(taskContent, status);
 
   // Insert to the top of the list
-  // content.append(container);
   content.insertBefore(container, content.firstChild);
 }
 
@@ -115,7 +99,7 @@ export function generateCategoriesDropdownMarkup(categories) {
   // Add default option
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
-  defaultOption.innerText = '🗒️ Category';
+  defaultOption.innerText = '🗒️ Choose category...';
 
   dropdown.append(defaultOption);
 
