@@ -67,11 +67,11 @@ export function generateTaskMarkup(task) {
   dateCategoryContainer.append(category, dueDate);
 
 
-  const description = document.createElement('p');
-  description.classList.add('description');
-  description.innerText = task.description;
+  // const description = document.createElement('p');
+  // description.classList.add('description');
+  // description.innerText = task.description;
 
-  taskContent.append(header, dateCategoryContainer, description);
+  taskContent.append(header, dateCategoryContainer);
 
 
   // Finally, a chevron for expanding the task

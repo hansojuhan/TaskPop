@@ -6,10 +6,10 @@ let tasks = [];
 let categories = [];
 
 class Task {
-  constructor(id, title, description, dueDate, category) {
+  constructor(id, title, dueDate, category) {
     this.id = id; // Unique ID
     this.title = title;
-    this.description = description;
+    // this.description = description;
     this.dueDate = dueDate;
     this.category = category;
     this.isDone = false;
@@ -115,7 +115,6 @@ function createNewTask() {
   let task = new Task(
     id,
     titleInput.value,
-    '',
     dueDate,
     category
   );
