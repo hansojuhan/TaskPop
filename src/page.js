@@ -1,6 +1,9 @@
 import 'emoji-picker-element';
 
-import { updateTaskStatus, showCategory, showAllCategories } from './index';
+// Import the 3 dots svg
+import editIcon from "./img/3dots.svg";
+
+import { updateTaskStatus, showCategory, showAllCategories, addNewCategory, editCategory } from './index';
 import { getCategoryById } from './localStorage';
 
 // Updates the h1 in the header
@@ -57,8 +60,13 @@ export function generateTaskMarkup(task) {
   category.classList.add('category');
 
   // Fetch category by the id saved in task object to get the emoji and name
+  // Check if the category exists
   const categoryValue = getCategoryById(task.category);
-  category.innerText = `${categoryValue.emoji} ${categoryValue.name}`
+  if (categoryValue) {
+    category.innerText = `${categoryValue.emoji} ${categoryValue.name}`;
+  } else {
+    category.innerText = 'Unknown category'; // Fallback text for missing category
+  }
 
   const dueDate = document.createElement('p');
   dueDate.classList.add('due-date');
@@ -154,7 +162,6 @@ export function generateCategoriesMenu(categories) {
     const listItem = document.createElement('li');
     const link = document.createElement('button');
     link.type = 'button';
-    link.innerText = `${category.emoji} ${category.name}`;
 
     // Add listener for button click
     link.addEventListener('click', () => {
@@ -165,6 +172,20 @@ export function generateCategoriesMenu(categories) {
       // Call function to show tasks
       showCategory(category);
     });
+
+    // Add inner text
+    const linkText = document.createElement('p');
+    linkText.innerText = `${category.emoji} ${category.name}`;
+
+    // Add the 3 dots for editing
+    const editButton = document.createElement('img');
+    editButton.src = editIcon;
+    editButton.alt = 'Edit category';
+
+    // Add listener for it
+    editButton.addEventListener('click', () => showEditCategoryModal(category));
+
+    link.append(linkText, editButton);
 
     listItem.append(link);
     menu.append(listItem);
@@ -182,14 +203,64 @@ export function generateCategoriesMenu(categories) {
   newCategoryButton.addEventListener('click', showNewCategoryModal);
 }
 
-// Export is for testing
 export function showNewCategoryModal() {
   const modal = document.getElementById('add-category-modal');
+
+  // Add listener for Add category
+  const addButton = document.getElementById('add-category-button');
+
+  // Check that button exists in the DOM
+  if (addButton) {
+    const addButtonWithoutListeners = addButton.cloneNode(true); // Clone the button to remove existing event listeners
+    addButton.replaceWith(addButtonWithoutListeners); //Replace the current button
+    addButtonWithoutListeners.addEventListener('click', addNewCategory); // Add one new listener
+  }
 
   // Add listener for the emoji to open emoji picker
   const emojiButton = document.getElementById('category-emoji-button');
   emojiButton.addEventListener('click', showEmojiPicker);
 
+  // Set modal fields
+  const modalTitle = document.querySelector('#category-modal-header h2')
+  modalTitle.innerText = 'New category';
+
+  const emojiField = document.getElementById('category-emoji-button');
+  emojiField.innerText = '📃';
+
+  const nameField = document.getElementById('category-name-button');
+  nameField.value = '';
+
+  modal.showModal();
+}
+
+export function showEditCategoryModal(category) {
+  const modal = document.getElementById('add-category-modal');
+
+  // Add listener for Edit category
+  const addButton = document.getElementById('add-category-button');
+
+  if (addButton) {
+    const addButtonWithoutListeners = addButton.cloneNode(true);
+    addButton.replaceWith(addButtonWithoutListeners);
+    addButtonWithoutListeners.addEventListener('click', () => editCategory(category.id));
+  }
+
+  // Add listener for the emoji to open emoji picker
+  const emojiButton = document.getElementById('category-emoji-button');
+  emojiButton.addEventListener('click', showEmojiPicker);
+
+  // Prefill fields on the modal
+  const modalTitle = document.querySelector('#category-modal-header h2')
+  modalTitle.innerText = 'Edit category';
+
+  const emojiField = document.getElementById('category-emoji-button');
+  emojiField.innerText = category.emoji;
+
+  const nameField = document.getElementById('category-name-button');
+  nameField.value = category.name;
+  nameField.select();
+
+  // Show modal
   modal.showModal();
 }
 
@@ -239,3 +310,20 @@ function removeActiveClassFromMenu(menu) {
     item.classList.remove('menu-active');
   });
 }
+
+// function createThreeDotsSvg() {
+//   // Finally, a chevron for expanding the task
+//   // const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+//   // chevron.setAttributeNS(null, 'viewBox', "0 0 24 24");
+//   // chevron.setAttributeNS(null, 'fill', "none");
+//   // chevron.setAttributeNS(null, 'stroke-width', "1.5");
+//   // chevron.setAttributeNS(null, 'stroke', "currentColor");
+//   // chevron.setAttributeNS(null, 'class', "task-chevron");
+
+//   // const chevronPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+//   // chevronPath.setAttributeNS(null, "stroke-linecap", "round");
+//   // chevronPath.setAttributeNS(null, "stroke-linejoin", "round");
+//   // chevronPath.setAttributeNS(null, "d", "m19.5 8.25-7.5 7.5-7.5-7.5");
+
+  
+// }

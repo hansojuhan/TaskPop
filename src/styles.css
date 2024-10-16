@@ -49,6 +49,7 @@ aside {
   gap: 0rem;
 }
 
+/* Add bottom border below the main all tasks link */
 #categories-menu li:first-child {
   border-bottom: 1px solid lightgray; /* Only apply the bottom border */
 
@@ -57,6 +58,7 @@ aside {
   
 }
 
+/* Menu list item */
 #categories-menu li {
   height: 3rem;
 
@@ -76,10 +78,29 @@ aside {
   font-size: 1.125rem;
 
   padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Three dots icon */
+#categories-menu li img {
+  width: 2rem;
+  stroke: blue;
+}
+
+/* Three dots icon on hover */
+#categories-menu li img:hover {
+  background-color: var(--very-dark);
+  border-radius: 999px;
+  transition: background-color .2s ease;
+
+  cursor: pointer;
 }
 
 #categories-menu li button:hover {
-  background-color: var(--very-dark);
+  background-color: var(--dark);
 }
 
 .menu-active {
@@ -308,13 +329,12 @@ header {
   color: var(--very-dark);
 }
 
-.task-chevron{
+/* .task-chevron{
   display: flex;
 
   width: 3rem;
   height: 3rem;
   stroke: var(--very-dark);
-  /* background-color: var(--light); */
 
   border-radius: var(--border-radius);
 
@@ -324,7 +344,7 @@ header {
   cursor: pointer;
 
   margin-right: 1rem;
-}
+} */
 
 /* ******************************************************** */
 /* Modal */

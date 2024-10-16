@@ -45,10 +45,6 @@ window.onload = function() {
     createNewTask();
   })
 
-  // Add listener for Add category
-  const addButton = document.getElementById('add-category-button');
-  addButton.addEventListener('click', addNewCategory);
-
   // Load tasks from local storage
   tasks = loadTasksFromLocal();
   console.log(tasks);
@@ -67,7 +63,7 @@ window.onload = function() {
 }
 
 // Creates new category, adds it to categories array, closes the modal
-function addNewCategory() {
+export function addNewCategory() {
   // Get values from the form
   const emoji = document.getElementById('category-emoji-button').innerText;
   let name = document.querySelector('input[name="name"]').value;
@@ -201,4 +197,30 @@ export function showAllCategories() {
 
   // Update page header
   updatePage.updatePageHeader('Todo');
+}
+
+export function editCategory(categoryId) {
+  // Get values from the form
+  const newEmoji = document.getElementById('category-emoji-button').innerText;
+  let newName = document.querySelector('input[name="name"]').value;
+
+  // Capitalize the name
+  newName = newName.charAt(0).toUpperCase() + newName.slice(1);
+
+  // Find category in the array and update it
+  const category = categories.find(c => c.id == categoryId);
+  category.name = newName;
+  category.emoji = newEmoji;
+
+  // Update local storage
+  saveCategoriesToLocal(categories);
+
+  // Update the sidebar
+  updatePage.generateCategoriesMenu(categories);
+
+  // Update the dropdown
+  updatePage.generateCategoriesDropdownMarkup(categories);
+
+  // Close this modal
+  updatePage.closeModal('add-category-modal');
 }

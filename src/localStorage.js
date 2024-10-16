@@ -59,7 +59,7 @@ export function getCategoryById(categoryId) {
 
   // Check if categories exists
   if (!storedCategories) {
-    console.log(`Category id:${categoryid} not found in local storage!`);
+    console.log(`Category id:${categoryId} not found in local storage!`);
     return null;
   }
 
