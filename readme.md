@@ -83,24 +83,24 @@ Other things to do:
 
 - [ ] Fix long text overflowing
 
-- Make mobile-friendy (currently everything breaks)
+- [ ] Make mobile-friendy (currently everything breaks)
 
-- Fix the emojipix cker positioning, should be close to the emoji
+- [ ] Fix the emojipix cker positioning, should be close to the emoji
 
 - [x] Add titles
 
 - [x] Make category menu items fully clickable
 
-- Hide task if done
+- [] Hide task if done
 
 - [x] Format dates
 
-- Close modal when clicking outside: https://stackoverflow.com/questions/50037663/how-to-close-a-native-html-dialog-when-clicking-outside-with-javascript
+- [ ] Close modal when clicking outside
 
-- Save task if pressing cmd + enter
+- [ ] Save task if pressing cmd + enter
 
-- Add notifications for task creation
+- [ ] Add notifications for task creation
 
-- style emoji picker
+- [ ] style emoji picker
 
-- dark mode?
+- [ ] dark mode?
