@@ -7,16 +7,18 @@
   font-family: "Inter";
 
   /* Colors */
-  --primary: #0b80d3;
+  --primary: lightblue;
   --secondary: #9022f1; 
   --light: #ffffff;
   --medium: #fefefe;
   --dark: #f2f2f2;
   --very-dark: #7a7a7a;
-
+  
   --border-radius: 0.25rem;
 
   --task-height: 6rem;
+
+
 
   /* Main theme */
   /* background-color: var(--very-dark); */
@@ -88,12 +90,11 @@ aside {
 /* Three dots icon */
 #categories-menu li img {
   width: 2rem;
-  stroke: blue;
 }
 
 /* Three dots icon on hover */
 #categories-menu li img:hover {
-  background-color: var(--very-dark);
+  background-color: var(--dark);
   border-radius: 999px;
   transition: background-color .2s ease;
 
@@ -101,11 +102,12 @@ aside {
 }
 
 #categories-menu li button:hover {
-  background-color: var(--dark);
+  background-color: var(--primary);
+  transition: background-color .1s ease;
 }
 
 .menu-active {
-  background-color: lightblue; /* You can style this as needed */
+  background-color: var(--primary); /* You can style this as needed */
   color: white;
   font-weight: bold;
 }
@@ -116,7 +118,7 @@ main {
   flex-direction: column;
   
   width: 100%;
-  
+
   box-shadow: 1px 1px 5px gray;
 }
 
@@ -165,7 +167,7 @@ header {
   border-radius: var(--border-radius);
   box-shadow: 0px 1px 5px gray;
 
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem 1rem 2rem;
   margin-bottom: 1rem;
 
   height: var(--task-height);
@@ -310,20 +312,20 @@ header {
 
 #button-container {
   display: flex;
-  width: 10%;
+  width: 3rem;
   
   justify-content: center;
   align-items: center;
 }
 
-#task-form button {
+#new-task-button {
   font-size: 3rem;
   color: gray;
   background-color: var(--light);
   border-radius: var(--border-radius);
 
-  height: 4rem;
-  width: 4rem;
+  height: 3rem;
+  width: 3rem;
 
   border: none;
   user-select: none;
@@ -333,9 +335,14 @@ header {
   justify-content: center;
 }
 
-#task-form button:hover {
-  background-color: var(--very-dark);
+#new-task-button:hover {
+  background-color: var(--primary);
   color: var(--light);
+  transition: background-color .2s ease;
+}
+
+#new-task-button:focus {
+  background-color: var(--dark);
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -350,7 +357,7 @@ header {
   border-radius: var(--border-radius);
   box-shadow: 0px 1px 5px gray;
 
-  padding: 1rem 2rem;
+  padding: 1rem 3rem 1rem 3rem;
 
   display: flex;
   justify-content: space-between;
@@ -367,25 +374,45 @@ header {
 .task-content {
   display: flex;
   flex-direction: column;
-
   width: 80%;
-
   padding-bottom: 0.125rem;
 }
 
 .title {
   margin: 0;
-
   white-space: nowrap;
   text-overflow: ellipsis;
-  
 }
 
-.description {
-  white-space: nowrap;
-  text-overflow: ellipsis;
+/* Checkbox */
+.status {
+  width: 4rem;
+  height: 4rem;
+  /* Use transform scale to increase the checkbox size */
+  transform: scale(1.5); /* Increase the size of the checkbox */
+  transform-origin: center; /* Center it */
 
-  margin: 0;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid lightgray;
+  background-color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.status:hover {
+  background-color: var(--primary);
+  color: var(--light);
+  transition: background-color .2s ease;
+}
+
+.status:checked {
+  /* background-color: var(--secondary); */
+  /* color: var(--light); */
+  appearance: auto;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .date-category-container {
@@ -417,14 +444,24 @@ header {
 
 /* ******************************************************** */
 /* Modal */
+/* Dark overlay with modal */
+#add-category-modal::backdrop {
+  background: rgba(0, 0, 0, 0.2);
+  animation: fade-in 0.2s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 #add-category-modal {
   border: none;
-
   font-size: 1.25rem;
-
-  /* width: 24rem;
-  height: 8rem; */
-
 
   padding: 2rem;
 

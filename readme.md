@@ -77,7 +77,7 @@ Other things to do:
 
 - [x] Edit categories
 
-- Add form validations everywhere
+- [x] Add form validations everywhere
 
 - Add css animations for buttons and modal openings
 
