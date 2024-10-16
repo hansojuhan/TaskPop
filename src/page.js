@@ -75,22 +75,22 @@ export function generateTaskMarkup(task) {
 
 
   // Finally, a chevron for expanding the task
-  const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  // chevron.setAttributeNS(null, 'xmlns', "http://www.w3.org/2000/svg");
-  chevron.setAttributeNS(null, 'viewBox', "0 0 24 24");
-  chevron.setAttributeNS(null, 'fill', "none");
-  chevron.setAttributeNS(null, 'stroke-width', "1.5");
-  chevron.setAttributeNS(null, 'stroke', "currentColor");
-  chevron.setAttributeNS(null, 'class', "task-chevron");
+  // const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  // chevron.setAttributeNS(null, 'viewBox', "0 0 24 24");
+  // chevron.setAttributeNS(null, 'fill', "none");
+  // chevron.setAttributeNS(null, 'stroke-width', "1.5");
+  // chevron.setAttributeNS(null, 'stroke', "currentColor");
+  // chevron.setAttributeNS(null, 'class', "task-chevron");
 
-  const chevronPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  chevronPath.setAttributeNS(null, "stroke-linecap", "round");
-  chevronPath.setAttributeNS(null, "stroke-linejoin", "round");
-  chevronPath.setAttributeNS(null, "d", "m19.5 8.25-7.5 7.5-7.5-7.5");
+  // const chevronPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  // chevronPath.setAttributeNS(null, "stroke-linecap", "round");
+  // chevronPath.setAttributeNS(null, "stroke-linejoin", "round");
+  // chevronPath.setAttributeNS(null, "d", "m19.5 8.25-7.5 7.5-7.5-7.5");
 
-  chevron.append(chevronPath);
+  // chevron.append(chevronPath);
 
-  container.append(status, taskContent, chevron);
+  // container.append(status, taskContent);
+  container.append(taskContent, status);
 
   // Insert to the top of the list
   // content.append(container);

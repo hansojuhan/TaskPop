@@ -75,8 +75,6 @@ Other things to do:
 
 - [x] Save the task status (open, done)
 
-- Expand task for description
-
 - Edit categories
 
 - Add form validations everywhere
