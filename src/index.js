@@ -2,6 +2,8 @@ import "./styles.css";
 import * as updatePage from "./page";
 import { saveTasksToLocal, loadTasksFromLocal, saveCategoriesToLocal, loadCategoriesFromLocal } from "./localStorage";
 
+import faviconImage from "./img/favicon.ico";
+
 let tasks = [];
 let categories = [];
 
@@ -28,6 +30,14 @@ class Category {
 const content = document.getElementById('content');
 
 window.onload = function() {
+  // Load favicon
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.href= faviconImage;
+  favicon.type = 'image/x-icon'
+  const head = document.querySelector('head');
+  head.append(favicon);
+
   // Dynamically adjust the height of the form when user types
   const textarea = document.querySelector('textarea[name="title"]');
   textarea.addEventListener('input', () => {

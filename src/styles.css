@@ -40,11 +40,37 @@ aside {
 
   background-color: var(--dark);
 
-  padding-top: 12rem;
-
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
 }
 
+/* Logo */
+#logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#logo-container > img {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Add some gradient to the text */
+#logo-container > h1 {
+  font-size: 2rem;
+  color: var(--very-dark);
+  
+  /* background: -webkit-linear-gradient(black, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+
 #categories-menu {
+  margin-top: 8rem;
   padding: 0;
 
   display: flex;
