@@ -91,7 +91,7 @@ Other things to do:
 
 - [x] Make category menu items fully clickable
 
-- [] Hide task if done
+- [ ] Hide task if done
 
 - [x] Format dates
 
@@ -105,4 +105,4 @@ Other things to do:
 
 - [ ] dark mode?
 
-- [ ] Favicon
+- [x] Favicon

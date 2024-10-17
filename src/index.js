@@ -3,6 +3,7 @@ import * as updatePage from "./page";
 import { saveTasksToLocal, loadTasksFromLocal, saveCategoriesToLocal, loadCategoriesFromLocal } from "./localStorage";
 
 import faviconImage from "./img/favicon.ico";
+import burgerIcon from "./img/burger.svg";
 
 let tasks = [];
 let categories = [];
@@ -38,6 +39,20 @@ window.onload = function() {
   const head = document.querySelector('head');
   head.append(favicon);
 
+  const header = document.querySelector('header');
+  const burger = document.createElement('img');
+  burger.src = burgerIcon;
+  burger.alt = 'Open sidemenu';
+  burger.id = 'burger-icon';
+  header.append(burger);
+
+  // Toggling the sidebar on mobile
+  const body = document.body;
+  burger.addEventListener('click', () => {
+    body.classList.toggle('aside-open'); // This will toggle the sidebar visibility
+  });
+  
+
   // Dynamically adjust the height of the form when user types
   const textarea = document.querySelector('textarea[name="title"]');
   textarea.addEventListener('input', () => {
@@ -61,6 +76,14 @@ window.onload = function() {
     // Reset form height
     textarea.style.height = '3rem';
     textarea.value = '';
+  });
+
+
+
+  // Add event listeners to close the sidebar if a category is clicked (optional)
+  const categoriesMenu = document.getElementById('categories-menu');
+  categoriesMenu.addEventListener('click', () => {
+    body.classList.remove('aside-open'); // Close the sidebar after selecting a category
   });
 
   // Load tasks from local storage
