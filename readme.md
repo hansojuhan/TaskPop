@@ -83,7 +83,7 @@ Other things to do:
 
 - [x] Fix long text overflowing
 
-- [ ] Make mobile-friendy (currently everything breaks)
+- [x] Make mobile-friendy (currently everything breaks)
 
 - [ ] Fix the emojipix cker positioning, should be close to the emoji
 

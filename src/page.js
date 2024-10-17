@@ -200,6 +200,21 @@ export function showNewCategoryModal() {
     addButtonWithoutListeners.addEventListener('click', addNewCategory); // Add one new listener
   }
 
+  // Listen for clicks outside the modal
+  modal.addEventListener('click', (event) => {
+    const dialogDimensions = modal.getBoundingClientRect();
+
+    // Check if click was outside the modal content
+    if (
+      event.clientX < dialogDimensions.left || 
+      event.clientX > dialogDimensions.right || 
+      event.clientY < dialogDimensions.top || 
+      event.clientY > dialogDimensions.bottom
+    ) {
+      modal.close(); // Close the modal
+    }
+  });
+
   // Add listener for the emoji to open emoji picker
   const emojiButton = document.getElementById('category-emoji-button');
   emojiButton.addEventListener('click', showEmojiPicker);
@@ -229,6 +244,21 @@ export function showEditCategoryModal(category) {
     addButtonWithoutListeners.addEventListener('click', () => editCategory(category.id));
   }
 
+  // Listen for clicks outside the modal
+  modal.addEventListener('click', (event) => {
+    const dialogDimensions = modal.getBoundingClientRect();
+
+    // Check if click was outside the modal content
+    if (
+      event.clientX < dialogDimensions.left || 
+      event.clientX > dialogDimensions.right || 
+      event.clientY < dialogDimensions.top || 
+      event.clientY > dialogDimensions.bottom
+    ) {
+      modal.close(); // Close the modal
+    }
+  });
+  
   // Add listener for the emoji to open emoji picker
   const emojiButton = document.getElementById('category-emoji-button');
   emojiButton.addEventListener('click', showEmojiPicker);
