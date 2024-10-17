@@ -97,9 +97,7 @@ Other things to do:
 
 - [x] Close modal when clicking outside
 
-- [ ] Save task if pressing cmd + enter
-
-- [ ] Add notifications for task creation
+- [x] Save task if pressing cmd + enter
 
 - [ ] style emoji picker
 
