@@ -28,22 +28,30 @@ class Category {
 const content = document.getElementById('content');
 
 window.onload = function() {
+  // Dynamically adjust the height of the form when user types
+  const textarea = document.querySelector('textarea[name="title"]');
+  textarea.addEventListener('input', () => {
+    // Dynamically adjust the height based on content
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+  });
+
   // When title is clicked, select all in the field
-  const titleInput = document.querySelector('input[name=title]');
+  const titleInput = document.querySelector('textarea[name=title]');
   titleInput.addEventListener('click', () => {
     titleInput.select();
   })
 
   // New task button listener
   const newTaskButton = document.getElementById('new-task-button');
-  newTaskButton.addEventListener('click', createNewTask);
-
-  // Listen for new task clicks, prevent form submission
-  const form = document.getElementById('task-form');
-  form.addEventListener('submit', (event) => {
+  newTaskButton.addEventListener('click', (event) => {
     event.preventDefault();
     createNewTask();
-  })
+
+    // Reset form height
+    textarea.style.height = '3rem';
+    textarea.value = '';
+  });
 
   // Load tasks from local storage
   tasks = loadTasksFromLocal();
@@ -115,7 +123,7 @@ function createNewTask() {
   }
   
   const id = Date.now(); // Use current time as unique ID
-  const titleInput = document.querySelector('input[name=title]');
+  const titleInput = document.querySelector('textarea[name=title]');
   const dueDate = document.querySelector('input[name=due-date]').value;
   const category = document.querySelector('select[name=category]').value;
 

@@ -81,7 +81,7 @@ Other things to do:
 
 - [x] Add css animations for buttons and modal openings
 
-- [ ] Fix long text overflowing
+- [x] Fix long text overflowing
 
 - [ ] Make mobile-friendy (currently everything breaks)
 
@@ -104,3 +104,5 @@ Other things to do:
 - [ ] style emoji picker
 
 - [ ] dark mode?
+
+- [ ] Favicon
