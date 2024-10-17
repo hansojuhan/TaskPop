@@ -74,8 +74,22 @@ window.onload = function() {
     createNewTask();
 
     // Reset form height
-    textarea.style.height = '3rem';
+    textarea.style.height = '5rem';
     textarea.value = '';
+  });
+
+  // Listen for keydown events in the textarea
+  textarea.addEventListener('keydown', (event) => {
+    // Check if Enter key is pressed along with Ctrl (Windows/Linux) or Cmd (Mac)
+    if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
+      event.preventDefault(); // Prevent default behavior (like adding a new line)
+      // Trigger task creation
+      createNewTask();
+
+      // Reset form height
+      textarea.style.height = '5rem';
+      textarea.value = '';
+    }
   });
 
 

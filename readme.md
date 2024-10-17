@@ -95,7 +95,7 @@ Other things to do:
 
 - [x] Format dates
 
-- [ ] Close modal when clicking outside
+- [x] Close modal when clicking outside
 
 - [ ] Save task if pressing cmd + enter
 
