@@ -115,6 +115,14 @@ window.onload = function() {
   // Populate categories on page, in dropdowns and in menu
   updatePage.generateCategoriesMenu(categories);
   updatePage.generateCategoriesDropdownMarkup(categories);
+
+  // Set the task creation note, based on if user using mac or windows
+  const shortcutNote = document.getElementById('submit-task-keyboard-shortcut');
+  if (window.navigator.userAgentData.platform == 'macOS') // Check if user on Mac
+    shortcutNote.innerText = '⌘ + Enter';
+  else { // Else, control key
+    shortcutNote.innerText = 'Ctrl + Enter';
+  }
 }
 
 // Creates new category, adds it to categories array, closes the modal
