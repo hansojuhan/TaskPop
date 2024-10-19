@@ -492,8 +492,39 @@ header {
 
   gap: 1rem;
   margin: 0;
+  padding: 0;
 
   color: var(--very-dark);
+}
+
+.date-category-container > p {
+  margin: 0.5rem 0;
+  height: 1.5rem;
+
+  display: flex;
+  align-items: center;
+}
+
+/* Add some styles for the category */
+.category {
+  background-color: #e6e6e6;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--border-radius);
+}
+
+.due-date-container {
+  background-color: #e6e6e6;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--border-radius);
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+  height: 1.5rem;
+}
+.due-date-container > img {
+  width: 1.125rem;
 }
 
 /* .task-chevron{

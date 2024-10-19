@@ -2,6 +2,7 @@ import 'emoji-picker-element';
 
 // Import the 3 dots svg
 import editIcon from "./img/3dots.svg";
+import calendarIcon from "./img/calendar.svg";
 
 import { updateTaskStatus, showCategory, showAllCategories, addNewCategory, editCategory } from './index';
 import { getCategoryById } from './localStorage';
@@ -65,10 +66,15 @@ export function generateTaskMarkup(task) {
   if (categoryValue) {
     category.innerText = `${categoryValue.emoji} ${categoryValue.name}`;
   } else {
-    category.innerText = ''; // Fallback text for missing category
+    category.innerText = '🗒️ wNo category'; // Fallback text for missing category
   }
   
-  // Due date
+  // Add a div for due date to contain the icon and the text
+  const dueDateContainer = document.createElement('div');
+  dueDateContainer.classList.add("due-date-container");
+  const calendar = document.createElement('img');
+  calendar.src = calendarIcon;
+
   const dueDate = document.createElement('p');
   dueDate.classList.add('due-date');
 
@@ -78,10 +84,12 @@ export function generateTaskMarkup(task) {
     const formattedDate = new Date(task.dueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
     dueDate.innerText = formattedDate;
   } else {
-    dueDate.innerHTML = '';
+    dueDate.innerHTML = 'No due date';
   }
 
-  dateCategoryContainer.append(category, dueDate);
+  dueDateContainer.append(calendar, dueDate);
+
+  dateCategoryContainer.append(category, dueDateContainer);
   taskContent.append(header, dateCategoryContainer);
   container.append(status, taskContent);
 
