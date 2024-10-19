@@ -83,7 +83,7 @@ export function generateTaskMarkup(task) {
 
   dateCategoryContainer.append(category, dueDate);
   taskContent.append(header, dateCategoryContainer);
-  container.append(taskContent, status);
+  container.append(status, taskContent);
 
   // Insert to the top of the list
   content.insertBefore(container, content.firstChild);

@@ -417,39 +417,36 @@ header {
 /* Task */
 .task {
   background-color: var(--dark);
+  box-shadow: 0px 1px 5px gray;
 
-  /* height: var(--task-height); */
   height: auto;
-
   overflow: hidden;
 
   border-radius: var(--border-radius);
-  box-shadow: 0px 1px 5px gray;
 
-  padding: 1rem 3rem 1rem 3rem;
+  padding: 1rem 1rem;
 
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
 }
 
 .task:hover {
   box-shadow: 0px 1px 5px black;
   transition: box-shadow .1s ease;
-
 }
 
 /* Checkbox */
 .task .status {
   width: 2rem;
   height: 2rem;
-  margin: 0 0 0 1rem;
+  margin: 0 1rem;
 }
 
 .task-content {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 95%;
   padding-bottom: 0.125rem;
 }
 
@@ -462,10 +459,10 @@ header {
   width: 4rem;
   height: 4rem;
   /* Use transform scale to increase the checkbox size */
-  transform: scale(1.5); /* Increase the size of the checkbox */
-  transform-origin: center; /* Center it */
+  /* transform: scale(1.5);  */
+  /* transform-origin: center; */
 
-  border-radius: 50%;
+  /* border-radius: 100%; */
   vertical-align: middle;
   border: 1px solid lightgray;
   background-color: white;
@@ -485,7 +482,8 @@ header {
   /* background-color: var(--secondary); */
   /* color: var(--light); */
   appearance: auto;
-  clip-path: circle(50% at 50% 50%);
+  /* clip-path: circle(50% at 50% 50%); */
+  border-radius: 100%;
 }
 
 .date-category-container {
