@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>TaskPop</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <aside>
+      <div id="logo-container"> 
+        <img src="6a628362b329b5d9cf0d.png" alt="logo">
+        <h1>TaskPop</h1>
+      </div>
+      <!-- List of categories -->
+      <ul id="categories-menu"></ul>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+      <header>
+        <h1 id="header">Todo List</h1>
+      </header>
+
+      <div id="main-container">
+        <!-- New task form -->
+        <form id="task-form">
+          <div id="task-form-section">
+            <div>
+              <textarea
+                type="text"
+                name="title"
+                placeholder="What do you need to get done?"
+                autofocus
+                maxlength="200"
+                minlength="0"
+                required
+              ></textarea>
+
+            </div>
+            <div id="task-form-date-category">
+              <div id="date-input-wrapper"><input type="date" name="due-date" /></div>
+              <!-- Placeholder for category input -->
+              <select name="category" id="category-dropdown"></select>
+            </div>
+          </div>
+          <!-- Submit -->
+          <div id="button-container">
+            <button id="new-task-button" type="button">+</button>
+          </div>
+        </form>
+        <small id="submit-task-note">Tip: press <span id="submit-task-keyboard-shortcut"></span> to create task</small>
+        <!-- Tasks here -->
+        <div id="content"></div>
+      </div>
+    </main>
+
+    <!-- New category modal -->
+    <dialog id="add-category-modal">
+      <form id="add-category-modal-form">
+        <div id="category-modal-header">
+          <h2>Add a category</h2>
+          <button
+            class="category-modal-button"
+            id="add-category-button"
+            type="button"
+          >
+            Add
+          </button>
+        </div>
+
+        <div id="category-modal-fields">
+          <div>
+            <!-- <label for="emoji">Symbol</label> -->
+            <button id="category-emoji-button" name="emoji" type="button">
+              📃
+            </button>
+          </div>
+          <div>
+            <!-- <label for="name">Category name</label> -->
+            <input
+              id="category-name-button"
+              name="name"
+              type="text"
+              required
+              placeholder="Add name..."
+              autofocus
+              pattern="[a-zA-Z0-9]{0,200}"
+              title="Please enter only letters and numbers."
+            />
+          </div>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
