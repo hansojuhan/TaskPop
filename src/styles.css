@@ -502,7 +502,6 @@ header {
   gap: 1rem;
   margin: 0;
   padding: 0;
-
   color: var(--very-dark);
 }
 
@@ -512,6 +511,9 @@ header {
 
   display: flex;
   align-items: center;
+
+  white-space: pre-wrap; /* Allow text to wrap */
+  word-wrap: break-word; /* Ensure long words wrap properly */
 }
 
 /* Add some styles for the category */
@@ -519,6 +521,7 @@ header {
   background-color: #e6e6e6;
   padding: 0.125rem 0.5rem;
   border-radius: var(--border-radius);
+
 }
 
 .due-date-container {
@@ -677,6 +680,9 @@ emoji-picker {
     background-color: var(--dark);
     z-index: 1000;
     width: 100%;
+
+    /* Toggle scrolling of the menu */
+    overflow-y: auto; /* Allow scrolling inside the side menu */
   }
 
   #burger-icon {
