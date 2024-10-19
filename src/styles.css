@@ -727,7 +727,11 @@ emoji-picker {
   .task {
     width: 100%;
   }
-  
+
+  /* On mobile, hide the keyboard shortcut note */
+  #submit-task-note {
+    display: none;
+  }
   /* In mobile, move date and category down as a column */
   #task-form-date-category {
     
