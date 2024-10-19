@@ -173,13 +173,12 @@ export function generateCategoriesMenu(categories) {
     const editButton = document.createElement('img');
     editButton.src = editIcon;
     editButton.alt = 'Edit category';
-
     // Add listener for it
     editButton.addEventListener('click', () => showEditCategoryModal(category));
 
-    link.append(linkText, editButton);
+    link.append(linkText);
 
-    listItem.append(link);
+    listItem.append(link, editButton);
     menu.append(listItem);
   });
 
