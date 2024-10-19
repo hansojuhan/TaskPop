@@ -667,7 +667,7 @@ emoji-picker {
     left: 0;
     background-color: var(--dark);
     z-index: 1000;
-    width: 60%;
+    width: 100%;
   }
 
   #burger-icon {
