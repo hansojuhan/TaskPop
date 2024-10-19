@@ -221,6 +221,16 @@ export function updateTaskStatus(event) {
 
     // Update local storage
     saveTasksToLocal(tasks);
+
+    // Set the done class to the task to mark it as done on screen
+    const taskContainer = checkbox.closest('.task'); // Find the parent container of the task
+    if (task.isDone) {
+      taskContainer.classList.add('done');
+      console.log("added done");
+      
+    } else {
+      taskContainer.classList.remove('done');
+    }
   }
 }
 

@@ -43,6 +43,11 @@ export function generateTaskMarkup(task) {
   // Add a listener for the checkbox, so task status could be updated if checked
   status.addEventListener('click', updateTaskStatus);
 
+  // If task is done, add the done class
+  if (task.isDone) {
+    container.classList.add('done');
+  }
+
   // Container for content, contains everything else
   const taskContent = document.createElement('div');
   taskContent.classList.add('task-content');
@@ -66,7 +71,7 @@ export function generateTaskMarkup(task) {
   if (categoryValue) {
     category.innerText = `${categoryValue.emoji} ${categoryValue.name}`;
   } else {
-    category.innerText = '🗒️ wNo category'; // Fallback text for missing category
+    category.innerText = '🗒️ No category'; // Fallback text for missing category
   }
   
   // Add a div for due date to contain the icon and the text

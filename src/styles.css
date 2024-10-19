@@ -452,6 +452,13 @@ header {
   padding-bottom: 0.125rem;
 }
 
+/* Task done style */
+.done {
+  text-decoration: line-through;
+  color: gray;
+  background-color: rgb(217, 217, 217);
+}
+
 .title {
   margin: 0;
 }
