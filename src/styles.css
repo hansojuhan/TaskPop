@@ -775,7 +775,8 @@ emoji-picker {
 
   #add-category-modal {
     width: 100%;
-    top: -50%;
+    height: 16rem;
+    top: -40%;
   }
 
   #category-dropdown {
